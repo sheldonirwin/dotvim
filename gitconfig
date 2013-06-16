@@ -1,0 +1,7 @@
+[user]
+	name = Sheldon Irwin
+	email = sheldon@server.fake
+[credential]
+	helper = cache
+[core]
+	excludesfile = /home/sheldon/.gitignore
