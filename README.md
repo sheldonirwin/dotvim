@@ -1,7 +1,9 @@
-#Vim Configuration
+Vim Configuration
+=================
 by Sheldon Irwin
 
-##Installation:
+Installation
+------------
 
 Clone the repository:
 	
@@ -13,34 +15,14 @@ Create Symbolic Links:
 	ln -s ~/.vim/gitignore ~/.gitconfig
 	ln -s ~/.vim/gitignore ~/.gitignore
 	
-##Change Log
+Changelog
+---------
 
-1) Added the NERDTree plugin as a submodule.
+(2013-mm-dd)
 
-2) Moved '.gitconfig' and '.gitignore' to the '.vim' directory.
-
-3) Added the following colorschemes:
-
-	codeschool (default)
-	github
-	guardian
-	jellybeans
-	railscasts
-	solarized
-	twilight
-
-4) Added a few GUI specific settings (as recommended by the codeschool colorscheme project)
-
-5) Disabled the use of the following keys:
-
-	up-arrow
-	down-arrow
-	left-arrow
-	right-arrow
-	backspace
-	delete
-	home
-	end
-
-6) Remapped 'za' to '<space>' for opening/closing of folds
-
+  * Improved split window settings and movement mappings
+  * Changed default folding method to marker {{{ ... }}}
+  * Added Plugins:
+    * [snipmate](https://github.com/msanders/snipmate.vim) 
+    * [surround](https://github.com/tpope/vim-surround)
+  * 

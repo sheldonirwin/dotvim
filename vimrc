@@ -9,9 +9,12 @@
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
 
-" Pathogen
+" Start :: Pathogen {{{
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 execute pathogen#infect()
+" }}} ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+" Start :: Template Settings {{{
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 " When started as "evim", evim.vim will already have done these settings.
@@ -99,15 +102,16 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
+" }}}
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Custom Modifications ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-" Start :: Colors
+" Start :: Colors {{{
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 if has("gui_running")
-	color codeschool
+	colorscheme codeschool
 	set guifont=Ubuntu\ Mono\ 12
 	let g:NERDTreeWinPos = "right"
 	set guioptions-=T " Removes top toolbar
@@ -116,9 +120,11 @@ if has("gui_running")
 	autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly
 	:set cpoptions+=$ " puts a $ marker for the end of words/lines in cw/c$ commands
 endif
+" }}}
 
-" Start :: Custom Mappings
+" Start :: Custom Mappings {{{
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Unmap the 'bad' keys
 inoremap  <BS>     <NOP>
 inoremap  <Del>    <NOP>
 inoremap  <Home>   <NOP>
@@ -143,14 +149,34 @@ noremap   <Right>  <NOP>
 nnoremap <Space> za
 vnoremap <Space> za
 
-" Start :: General Settings
+" Better split window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+" }}}
+
+" Start :: General Settings {{{
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Tab width to four spaces (length only)
 set tabstop=4
 set shiftwidth=4
+" Number each line
 set number
-set autochdir
+" Horizontal and vertical splits appear below / to the right
+set splitbelow
+set splitright
+" Set folding method to markers ({{{ }}})
+set foldmethod=marker
+set nowrap
+set showbreak=↪
+" Enable Omnifunc - Code Completion
+if has("autocmd") 
+	autocmd Filetype java setlocal omnifunc=javacomplete#Complete 
+endif 
+" }}}
 
-" Start :: Enable Saving and Restoring of VIM Screen Positions and Sizes
+" Start :: Enable Saving and Restoring of VIM Screen Positions and Sizes {{{
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " To enable the saving and restoring of screen positions.
 let g:screen_size_restore_pos = 1
@@ -212,43 +238,40 @@ if has("gui_running")
   autocmd VimEnter * if g:screen_size_restore_pos == 1 | call ScreenRestore() | endif
   autocmd VimLeavePre * if g:screen_size_restore_pos == 1 | call ScreenSave() | endif
 endif
+" }}}
+
+" Start :: Abbreviations {{{
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+" Misspellings
+abbr teh the
+abbr Teh The
+
+" Java Mappings
+abbr psvm public static void main(String[] args) {<CR><tab><CR>}<esc>kla
+abbr sysout System.out.println("");<esc>2hi
+abbr sop System.out.println("");<esc>2hi
+abbr syserr System.err.println("");<esc>2hi
+abbr sep System.err.println("");<esc>2hi
+
+abbr forl for (int i = 0; i <; i++) {<esc>o<esc>o}<esc>2k^18la
+abbr getter public get() {<CR>return <CR>}<esc>2k^fcli
+abbr setter public void set() {<CR>this. = <CR>}<esc>2k^fta
+abbr tryb try {<CR>} catch (Exception ex) {<CR> ex.printStackTrace();<CR>}<esc>hx3ko
+abbr const public static final int
+
+abbr ctm System.currentTimeMillis()
+abbr slept try {<CR><tab>thread.sleep();<CR>} catch(Exception ex) {<CR><tab>ex.printStackTrace();<CR>}<esc>hx3k$hi
+
+abbr javadoc not yet implemented...
+abbr methoddoc not yet implemented...
+abbr classdoc not yet implemented...
+
+" C Mappings
+" ...
+
+" }}}
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
