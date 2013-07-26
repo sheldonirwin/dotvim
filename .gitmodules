@@ -16,3 +16,21 @@
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = http://github.com/msanders/snipmate.vim.git
+[submodule "bundle/abolish"]
+	path = bundle/abolish
+	url = http://github.com/tpope/vim-abolish.git
+[submodule "bundle/repeat"]
+	path = bundle/repeat
+	url = http://github.com/tpope/vim-repeat.git
+[submodule "bundle/commentary"]
+	path = bundle/commentary
+	url = http://github.com/tpope/vim-commentary.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = http://github.com/scrooloose/syntastic.git
+[submodule "bundle/hex-highlight"]
+	path = bundle/hex-highlight
+	url = http://github.com/vim-scripts/hexHighlight.vim.git
+[submodule "bundle/hi-link-trace"]
+	path = bundle/hi-link-trace
+	url = http://github.com/gerw/vim-HiLinkTrace.git

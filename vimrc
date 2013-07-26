@@ -174,6 +174,19 @@ set showbreak=↪
 if has("autocmd") 
 	autocmd Filetype java setlocal omnifunc=javacomplete#Complete 
 endif 
+" Set the snippets-author
+let g:snips_author="Irwin, Sheldon"
+" }}}
+
+" Start :: Show highlighting groups for current word (color scheme tool) {{{
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" nmap <C-S-P> :call <SID>SynStack()<CR>
+" function! <SID>SynStack()
+" 	if !exists("*synstack")
+" 		return
+" 	endif
+" 	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+" endfunc
 " }}}
 
 " Start :: Enable Saving and Restoring of VIM Screen Positions and Sizes {{{
@@ -246,29 +259,6 @@ endif
 " Misspellings
 abbr teh the
 abbr Teh The
-
-" Java Mappings
-abbr psvm public static void main(String[] args) {<CR><tab><CR>}<esc>kla
-abbr sysout System.out.println("");<esc>2hi
-abbr sop System.out.println("");<esc>2hi
-abbr syserr System.err.println("");<esc>2hi
-abbr sep System.err.println("");<esc>2hi
-
-abbr forl for (int i = 0; i <; i++) {<esc>o<esc>o}<esc>2k^18la
-abbr getter public get() {<CR>return <CR>}<esc>2k^fcli
-abbr setter public void set() {<CR>this. = <CR>}<esc>2k^fta
-abbr tryb try {<CR>} catch (Exception ex) {<CR> ex.printStackTrace();<CR>}<esc>hx3ko
-abbr const public static final int
-
-abbr ctm System.currentTimeMillis()
-abbr slept try {<CR><tab>thread.sleep();<CR>} catch(Exception ex) {<CR><tab>ex.printStackTrace();<CR>}<esc>hx3k$hi
-
-abbr javadoc not yet implemented...
-abbr methoddoc not yet implemented...
-abbr classdoc not yet implemented...
-
-" C Mappings
-" ...
 
 " }}}
 

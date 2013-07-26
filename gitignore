@@ -1,4 +1,5 @@
 *~
 *.swp
 *.swo
-usefulcommands
+eclim
+plugin/eclim.vim

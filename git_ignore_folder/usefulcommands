@@ -1,0 +1,28 @@
+git init							- Initialize a git repository in the CWD
+git add .							- Add all files to stage (less .gitignore files)
+git rm <file>							- Remove a file from the stage
+git commit -m "...some message..."				- Commit changes
+git status							- Display the current stage + changes status
+git push -u origin master					- Push git commit to GitHub
+
+** Cloning
+git clone http://github.com/.../....git .../some/path/...
+
+** Pathogen
+git submodule add http://github.com/.../....git bundle/...	- Add submodule repository to vim 
+cd ~/.vim/bundle/..repo..; git pull origin master		- Update the ..repo.. submodule
+
+
+** Change a commit
+git reset HEAD~1				- Remove previous commit but KEEP FILES.
+... make changes ...			- Make changes to the files...
+git push origin HEAD --force 	- Remove the pushed commit from the remote repository (e.g. GitHub)
+git add .						- Re-add the files
+git commit ... push ...
+
+
+
+GET
+	sparkup
+	snipmate
+	...
