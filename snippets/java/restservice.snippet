@@ -1,0 +1,148 @@
+package ${1}.rest;
+
+// Imports {{{1
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.logging.Logger;
+
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+import javax.validation.ValidationException;
+import javax.validation.Validator;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
+
+// TODO import model classes
+
+// }}}1
+
+@Path("")
+@RequestScoped
+public class ${2:`Snippet_JavaClassNameFromFilename()`}${3} {
+	
+	// Fields and Injections {{{1
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	@Inject
+	private Logger log;
+	
+	@Inject
+	private EntityManager em;
+	
+	@Inject
+	private Validator validator;
+	
+	// @Inject
+	// private UserTransaction utx;
+	
+	// }}}1
+	
+	// REST Endpoints {{{1
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	// Model Class:		${3:Foo}
+	// Service Root:	${4:foos}
+	
+	@GET    @Path("/$4") // {{{2
+	@Produces("application/json")
+	public Response get$3s() {
+		// TODO get all $3s
+		
+		return Response
+			.ok()
+			// .status(200)
+			.entity("{}")
+			.build();
+	}
+	
+	@GET    @Path("/$4/{id:[0-9]+}") // {{{2
+	@Produces("application/json")
+	public Response get$3(@PathParam("id") Long id) {
+		// TODO get $3 with id == :id
+		
+		return Response
+			.ok()
+			// .status(200)
+			.entity("{}")
+			.build();
+	}
+	
+	@POST   @Path("/$4") // {{{2
+	@Consumes("application/json")
+	@Produces("application/json")
+	public Response add$3s() {
+		// TODO add all $3s
+		
+		return Response
+			.ok()
+			// .status(200)
+			.entity("{}")
+			.build();
+	}
+	
+	@PUT    @Path("/$4") // {{{2
+	@Consumes("application/json")
+	@Produces("application/json")
+	public Response update$3s() {
+	// TODO update all $3s
+		
+		return Response
+			.ok()
+			// .status(200)
+			.entity("{}")
+			.build();
+	}
+	
+	@PUT    @Path("/$4/{id:[0-9]+}") // {{{2
+	@Consumes("application/json")
+	@Produces("application/json")
+	public Response update$3(@PathParam("id") Long id) {
+		// TODO update $3 with id == :id
+		
+		return Response
+			.ok()
+			// .status(200)
+			.entity("{}")
+			.build();
+	}
+	
+	@DELETE @Path("/$4") // {{{2
+	@Produces("application/json")
+	public Response delete$3s() {
+		// TODO delete all $3s
+		
+		return Response
+			.ok()
+			// .status(200)
+			.entity("{}")
+			.build();
+	}
+	
+	@DELETE @Path("/$4/{id:[0-9]+}") // {{{2
+	@Produces("application/json")
+	public Response delete$3(@PathParam("id") Long id) {
+		// TODO delete $3 with id == :id
+		
+		return Response
+			.ok()
+			// .status(200)
+			.entity("{}")
+			.build();
+	} // }}}2
+	
+	// }}}1
+	
+}

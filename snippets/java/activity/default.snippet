@@ -1,0 +1,68 @@
+package com.mkyong.android;
+ 
+// Imports {{{1
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TextView;
+// }}}1
+ 
+public class HelloWorldActivity extends Activity implements OnClickListener {
+	
+	// Fields {{{1
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	private Context context;
+	private TextView textView;
+	private Button button;
+	
+	// }}}1
+	
+	// Constructors and Destructors {{{1
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+    /** onCreate - Called when the activity is first created. {{{2 */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+		setContentView(R.layout.main);
+		 
+		// Assign Context
+		context = this;
+		
+		// Instantiate View Fields
+		textView = (TextView) findViewById(R.id.textViewId);
+		button = (Button) findViewById(R.id.buttonId);
+		
+		// Add Action Listeners
+		button.setOnClickListener(this);
+		
+    } // }}}2
+	
+	// }}}1
+	
+	// Action Listeners {{{1
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	@Override
+	public void onClick(View view) {
+		switch (view.getId()) {
+		Log.i("", view.getId() + " was clicked..");
+		case R.id.buttonId:
+			// Switch Intent (Activity)
+			// Intent intent = new Intent(context, SomeOtherActivity.class);
+			// startActivity(intent);
+			break;
+		default:
+			break;
+		}
+	}
+	
+	// }}}1
+	
+}
